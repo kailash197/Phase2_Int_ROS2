@@ -64,6 +64,9 @@ ament_target_dependencies(executor_example_5_mutualyexclusive_node rclcpp)
 add_executable(executor_example_5_mutualyexclusive_multiple_node src/executor_example_5_mutualyexclusive_multiple.cpp)
 ament_target_dependencies(executor_example_5_mutualyexclusive_multiple_node rclcpp)
 
+# Box Bot Manager
+add_executable(box_bot_manager_node src/box_bot_manager.cpp)
+ament_target_dependencies(box_bot_manager_node rclcpp nav_msgs geometry_msgs)
 
 # Install
 install(TARGETS
@@ -77,6 +80,7 @@ install(TARGETS
    executor_example_5_reentrant_node
    executor_example_5_mutualyexclusive_node
    executor_example_5_mutualyexclusive_multiple_node
+   box_bot_manager_node
    DESTINATION lib/${PROJECT_NAME}
  )
 
