@@ -68,6 +68,12 @@ ament_target_dependencies(executor_example_5_mutualyexclusive_multiple_node rclc
 add_executable(box_bot_manager_node src/box_bot_manager.cpp)
 ament_target_dependencies(box_bot_manager_node rclcpp nav_msgs geometry_msgs)
 
+add_executable(wait_for_box_bots_arrive_node src/wait_for_box_bots_arrive.cpp)
+ament_target_dependencies(wait_for_box_bots_arrive_node rclcpp std_msgs)
+
+add_executable(wait_for_box_bots_arrive_static_node src/wait_for_box_bots_arrive_static.cpp)
+ament_target_dependencies(wait_for_box_bots_arrive_static_node rclcpp std_msgs)
+
 # Install
 install(TARGETS
    executor_example_1_node
@@ -81,6 +87,8 @@ install(TARGETS
    executor_example_5_mutualyexclusive_node
    executor_example_5_mutualyexclusive_multiple_node
    box_bot_manager_node
+   wait_for_box_bots_arrive_node
+   wait_for_box_bots_arrive_static_node
    DESTINATION lib/${PROJECT_NAME}
  )
 
