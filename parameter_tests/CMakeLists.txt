@@ -8,7 +8,8 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -23,8 +24,10 @@ endif()
 
 add_executable(param_vel_node src/parameter_tests_node.cpp)
 ament_target_dependencies(param_vel_node rclcpp geometry_msgs)
+add_executable(param_exercise_node src/parameter_exercise.cpp)
+ament_target_dependencies(param_exercise_node rclcpp sensor_msgs nav_msgs)
 
-install(TARGETS param_vel_node
+install(TARGETS param_vel_node param_exercise_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
