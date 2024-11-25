@@ -26,8 +26,10 @@ add_executable(param_vel_node src/parameter_tests_node.cpp)
 ament_target_dependencies(param_vel_node rclcpp geometry_msgs)
 add_executable(param_exercise_node src/parameter_exercise.cpp)
 ament_target_dependencies(param_exercise_node rclcpp sensor_msgs nav_msgs)
+add_executable(param_vel_node2 src/parameter_tests_callback.cpp)
+ament_target_dependencies(param_vel_node2 rclcpp geometry_msgs rcl_interfaces)
 
-install(TARGETS param_vel_node param_exercise_node
+install(TARGETS param_vel_node param_exercise_node param_vel_node2
   DESTINATION lib/${PROJECT_NAME}
 )
 
