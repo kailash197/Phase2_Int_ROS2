@@ -1,0 +1,26 @@
+launch:
+
+# args that can be set from the command line or a default will be used
+- arg:
+    name: "turning_speed"
+    default: "0.0"
+- arg:
+    name: "forward_speed"
+    default: "0.0"
+
+
+- node:
+    pkg: "launch_tests_pkg"
+    exec: "move_robot_with_params_exe"
+    name: "move_robot_node"
+    param:
+    -
+      name: "turning_speed"
+      value: "$(var turning_speed)"
+    -
+      name: "forward_speed"
+      value: "$(var forward_speed)"
+
+
+
+# ros2 launch launch_tests_pkg yaml_main.launch.yaml turning_speed:=1.0 forward_speed:=1.0 rviz_config_file_name:=launch_part_2.rviz
